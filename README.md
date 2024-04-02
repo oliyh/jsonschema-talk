@@ -1,14 +1,24 @@
 # jsonschema-talk
 
 - Basic introduction
+  - JSON has won the war
+    - Every language supports it
+    - Databases support it
+    - Content type of the internet
+    - Just enough data literals to express anything
+  - But JSON is missing things
+    - Comments
+    - Dates, times, keywords
+    - Sets
+  - Constraints over JSON
 - Things you can describe
-  - Primitives
+  - Primitives (including enums, numbers with min/max, strings with formats or patterns)
   - Objects
   - Arrays
   - Conjunctions (allOf, oneOf, anyOf)
   - Logical branches (if then else)
 - Uses
-  - Common reference point for collaborators
+  - Common, language agnostic reference point for collaborators
   - Validation
   - UI generation
   - Documentation
@@ -17,4 +27,7 @@
   - Arrays of objects, rather than special keys
   - Avoid unconstrained strings
   - Meaningful, human readable titles and descriptions
-  - 
+- UI generation
+  - Strangely lacking, with exception of rjsf but that ia not very composable
+  - Diagram of redux / render loop
+  - Ideal props to render with

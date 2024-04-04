@@ -1,5 +1,7 @@
 # jsonschema-talk
 
+## We need to talk about JSON
+
 - Basic introduction
   - JSON has won the war
     - Every language supports it
@@ -11,6 +13,7 @@
     - Dates, times, keywords
     - Sets
   - Constraints over JSON
+    - Examples of valid JSON that represent garbage
 - Things you can describe
   - Primitives (including enums, numbers with min/max, strings with formats or patterns)
   - Objects

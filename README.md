@@ -32,6 +32,7 @@
   - Avoid unconstrained strings
   - Meaningful, human readable titles and descriptions
 - UI generation
-  - Strangely lacking, with exception of rjsf but that ia not very composable
+  - Strangely lacking, with exception of rjsf but that is not very composable
   - Diagram of redux / render loop
   - Ideal props to render with
+  - Mention jsonpath, jsonpointer

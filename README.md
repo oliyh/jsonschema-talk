@@ -20,6 +20,7 @@
   - Arrays
   - Conjunctions (allOf, oneOf, anyOf)
   - Logical branches (if then else)
+  - Metaschema, hyperschema!
 - Uses
   - Common, language agnostic reference point for collaborators
   - Validation

@@ -14,6 +14,7 @@
     - Sets
   - Constraints over JSON
     - Examples of valid JSON that represent garbage
+    - Garbage in, garbage out
 - Things you can describe
   - Primitives (including enums, numbers with min/max, strings with formats or patterns)
   - Objects
@@ -36,3 +37,10 @@
   - Diagram of redux / render loop
   - Ideal props to render with
   - Mention jsonpath, jsonpointer
+ 
+Content ideas
+- Starwars intro
+- T-shirt designs
+- Gifs (always)
+- Fake tweets
+- Side of a lorry, or billboard?

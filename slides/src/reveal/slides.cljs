@@ -114,6 +114,46 @@
      [:li "How can we specify what we mean by a valid document?"]]]])
 
 
+(def json-schema
+  [:section
+   [:h1 "JSON Schema"]
+   [:img {:src "img/liquid-cats.png"}]
+   [:aside.notes
+    [:ul
+     [:li "JSON Schema lets us specify constraints"]
+     [:li "If the values in a JSON document fit inside those constraints, we can say it is valid"]]]])
+
+(def json-schema-example
+  [:section
+   [:h1 "Example"]
+   [:pre
+    [:code {:data-trim true :data-noescape true
+            :data-line-numbers "1-100|5,6,10|4,8,12|15|2,3,7,11"}
+     "{
+  \"title\": \"Product\",
+  \"description\": \"A product from Acme's catalog\",
+  \"type\": \"object\",
+  \"properties\": {
+    \"productId\": {
+      \"description\": \"The unique identifier for a product\",
+      \"type\": \"integer\"
+    },
+    \"productName\": {
+      \"description\": \"Name of the product\",
+      \"type\": \"string\"
+    }
+  },
+  \"required\": [ \"productId\", \"productName\" ]
+}"]]
+   [:aside.notes
+    [:ul
+     [:li "Here is an example of a schema for a JSON object"]
+     [:li "It has two properties, productId and productName"]
+     [:li "The type field tells us their JSON types, which are object, integer and string respectively"]
+     [:li "We can express optionality with the required field"]
+     [:li "There is also metadata which we can use to give human descriptions and information, like comments would"]]]])
+
+
 (defn all []
   [title-page
    me
@@ -122,4 +162,7 @@
    javascript
    missing-features
    good-json
-   bad-json])
+   bad-json
+
+   json-schema
+   json-schema-example])

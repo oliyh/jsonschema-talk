@@ -148,7 +148,7 @@ Todo - if then else
 ## Extensible
 
 You can add extra keys to JSON Schema to implement your own extensions.
-Example of 'domain' extensions e.g. Currency, or postcodes - don't want to enumerate it, there's no regex, but there is a restriction to what string is allowed 
+Example of 'domain' extensions e.g. Currency, or postcodes - don't want to enumerate it, there's no regex, but there is a restriction to what string is allowed
 
 # UI Generation
 

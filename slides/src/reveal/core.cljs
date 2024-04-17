@@ -13,7 +13,7 @@
                        :transition "fade"                   ; e.g. none/fade/slide/convex/concave/zoom
                        :center false
                        :slideNumber "c"
-                       :plugins [js/RevealNotes]}))
+                       :plugins [js/RevealNotes js/RevealHighlight]}))
 
 
 ;; -----------------------------------------------------------------------------
@@ -38,7 +38,6 @@
                     (set! (.-connect js/figwheel.repl) (constantly "Disabled for speaker notes")))
 
                   ;; trigger an event which will update the speaker notes
-                  (.dispatchEvent js/Reveal (clj->js {:type "resumed"}))))
-        (.then (fn [] (charts/init))))))
+                  (.dispatchEvent js/Reveal (clj->js {:type "resumed"})))))))
 
 (main)

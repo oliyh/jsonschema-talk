@@ -1,22 +1,25 @@
 (ns reveal.slides
   (:require [clojure.string :as str]))
 
+(def slide-config
+  {:data-background-image "img/background.jpg"})
+
 (defn style [m]
   {:style (str/join ";" (map (fn [[k v]] (str (name k) ": " v)) m))})
 
 (def title-page
   [:section
-   {:data-background-image "img/background.jpg"}
+   slide-config
    [:h5 (style {:color "#111"
-                :text-shadow "0 0 10px #fff, 0 0 20px #fff, 0 0 30px yellow "})
+                :text-shadow "0 0 10px #fff, 0 0 20px #fff, 0 0 30px orange "})
     "We need to talk about"]
    [:h1.r-fit-text (style {:color "#111"
-                           :text-shadow "0 0 10px #fff, 0 0 20px #fff, 0 0 30px yellow "})
+                           :text-shadow "0 0 10px #fff, 0 0 20px #fff, 0 0 30px orange "})
     "JSON"]])
 
 (def me
   [:section
-   {:data-background-image "img/background.jpg"}
+   slide-config
    [:img {:src "img/i-like-banks.png"}]
    [:aside.notes
     [:ul
@@ -25,6 +28,7 @@
 
 (def intro
   [:section
+   {:data-background-color "black"}
    [:video.r-stretch
     {:controls true :data-autoplay true}
     [:source {:src "vid/starwars-intro.mp4"
@@ -32,6 +36,7 @@
 
 (def json-everywhere
   [:section
+   slide-config
    [:h1 "Resistance is futile"]
    [:p "JSON is everywhere representing everything"]
    [:ul
@@ -46,6 +51,7 @@
 
 (def javascript
   [:section
+   slide-config
    [:h1 "Javascript"]
    [:p "I'll just use " [:code "array.sort()"] " to sort these numbers"]
    [:img {:src "img/javascript.png"}]
@@ -56,6 +62,7 @@
 
 (def missing-features
   [:section
+   slide-config
    [:h1 "JSON's missing features"]
    [:ul
     [:li "Comments"]
@@ -69,6 +76,7 @@
 
 (def good-json
   [:section
+   slide-config
    [:h1 "The good"]
    [:pre
     [:code {:data-trim true :data-noescape true}
@@ -93,6 +101,7 @@
 
 (def bad-json
   [:section
+   slide-config
    [:h1 "The bad"]
    [:pre
     [:code {:data-trim true :data-noescape true}
@@ -117,6 +126,7 @@
 
 (def json-schema
   [:section
+   slide-config
    [:h1 "JSON Schema"]
    [:img {:src "img/liquid-cats.png"}]
    [:aside.notes
@@ -126,6 +136,7 @@
 
 (def json-schema-example
   [:section
+   slide-config
    [:h1 "Example"]
    [:pre
     [:code {:data-trim true :data-noescape true

@@ -6,7 +6,7 @@
 
 (def title-page
   [:section
-   {:data-background-image "img/title-screen.jpg"}
+   {:data-background-image "img/background.jpg"}
    [:h5 (style {:color "#111"
                 :text-shadow "0 0 10px #fff, 0 0 20px #fff, 0 0 30px yellow "})
     "We need to talk about"]
@@ -16,6 +16,7 @@
 
 (def me
   [:section
+   {:data-background-image "img/background.jpg"}
    [:img {:src "img/i-like-banks.png"}]
    [:aside.notes
     [:ul

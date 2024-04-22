@@ -138,7 +138,7 @@
   [:section
    slide-config
    [:h1 "Example"]
-   [:pre
+   [:pre.r-stretch
     [:code {:data-trim true :data-noescape true
             :data-line-numbers "1-100|5,6,10|4,8,12|15|2,3,7,11"}
      "{
@@ -165,6 +165,134 @@
      [:li "We can express optionality with the required field"]
      [:li "There is also metadata which we can use to give human descriptions and information, like comments would"]]]])
 
+(def type-constraints-numbers
+  [:section
+   slide-config
+   [:h1 "Type constraints"]
+   [:pre
+    [:code {:data-trim true :data-noescape true}
+     "{
+  \"type\": \"integer\"
+}"]]
+   [:pre
+    [:code {:data-trim true :data-noescape true}
+     "{
+  \"type\": \"number\",
+}"]]
+   [:pre
+    [:code {:data-trim true :data-noescape true}
+     "{
+  \"type\": \"number\",
+  \"minimum\": 0,
+  \"maximum\": 100
+}"]]
+   [:aside.notes
+    [:ul
+     [:li "Numbers can be constrained to integers"]
+     [:li "We can also constrain to positive numbers, and set upper bounds"]]]])
+
+(def type-constraints-strings
+  [:section
+   slide-config
+   [:h1 "Type constraints"]
+   [:pre
+    [:code {:data-trim true :data-noescape true}
+     "{
+  \"type\": \"string\",
+  \"enum\": [\"Sunny\", \"Cloudy\", \"Rain\"]
+}"]]
+   [:pre
+    [:code {:data-trim true :data-noescape true}
+     "{
+  \"type\": \"string\",
+  \"format\": \"date\" // or uuid, email, time etc
+}"]]
+   [:pre
+    [:code {:data-trim true :data-noescape true}
+     "{
+  \"type\": \"string\",
+  \"minLength\": 8
+}"]]
+   [:pre
+    [:code {:data-trim true :data-noescape true}
+     "{
+  \"type\": \"string\",
+  \"pattern\": \"[a-Z]{4}-[0-9]+\"
+}"]]
+   [:aside.notes
+    [:ul
+     [:li "Strings - the most abused of all data types"]
+     [:li "Finally no more arguments about what date formats to use"]
+     [:li "Adds a whole load of richer types to JSON"]]]])
+
+
+(def conditionality
+  [:section
+   slide-config
+   [:h1 "Conditionality"]
+   [:pre.r-stretch
+    [:code {:data-trim true :data-noescape true}
+     "{
+  \"type\": \"object\",
+  \"properties\": {
+    \"streetAddress\": { \"type\": \"string\" },
+    \"country\": { \"enum\": [\"USA\", \"Canada\"] }
+  },
+  \"if\": {
+    \"properties\": {
+      \"country\": { \"const\": \"USA\" }
+    }
+  },
+  \"then\": {
+    \"properties\": {
+      \"zipCode\": { \"pattern\": \"[0-9]{5}(-[0-9]{4})?\" }
+    }
+  }
+}"
+]]
+   [:aside.notes
+    [:ul
+     [:li "We can even represent conditionality"]
+     [:li "This allows us to represent polymorphism"]]]])
+
+(def features-list
+  [:section
+   slide-config
+   [:h1 "Features"]
+   [:ul
+    [:li "Additional primitive types"]
+    [:li "Range or character constraints"]
+    [:li "Conditionality"]
+    [:li "Composition e.g. anyOf, allOf"]
+    [:li "Optionality"]
+    [:li "Read-only / write-only"]
+    [:li "Referencing other schemas"]
+    [:li "Annotations"]
+    [:li "And more!"]]
+   [:aside.notes
+    [:ul
+     [:li "JSON Schema has a huge range of features that I've only just touched on"]
+     [:li "There should be nothing preventing representation of your data structures in JSON Schema"]
+     [:li "It's also extensible - you can add any keywords you like - but consumers will need to be told what they mean"]]]])
+
+(def use-cases
+  [:section
+   slide-config
+   [:h1 "Use cases"]
+   ;; https://www.spreadshirt.co.uk/create-your-own?productType=812&productTypeCategory=CG01
+   [:div
+    (style {:display "flex"})
+    [:div [:img {:src "img/first-class.png"}]]
+    [:div [:img {:src "img/annotated.png"}]]
+    [:div [:img {:src "img/open-standard.png"}]]]
+   [:aside.notes
+    [:ul
+     [:li "The schema is there for everyone to see and inspect"]
+     [:li "Expressed as data, so that tools can be used for comprehension"]
+     [:li "Can be shared with any application regardless of language"]
+     [:li "Annotated to be readable to humans and convey intent"]
+     [:li "Plenty of third party tooling available"]]]])
+
 
 (defn all []
   [title-page
@@ -177,4 +305,15 @@
    bad-json
 
    json-schema
-   json-schema-example])
+   json-schema-example
+   type-constraints-numbers
+   type-constraints-strings
+   conditionality
+   features-list
+
+   use-cases
+   ;; practical-application ;; common definition used across multiple services, UI, ETL pipe
+   ;; case-study-structured-products ;; services can treat it as a blob while knowing they can peer in
+   ;;
+
+   ])

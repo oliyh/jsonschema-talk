@@ -288,7 +288,7 @@
    [:aside.notes
     [:ul
      [:li "The schema is there for everyone to see and inspect"]
-     [:li "Expressed as data, so that tools can be used for comprehension"]
+     [:li "Just data, so that tools can be used for comprehension"]
      [:li "Can be shared with any application regardless of language"]
      [:li "Annotated to be readable to humans and convey intent"]
      [:li "Plenty of third party tooling available"]]]])

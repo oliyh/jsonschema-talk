@@ -256,7 +256,8 @@
    slide-config
    [:h1 "Conditionality"]
    [:pre.r-stretch
-    [:code {:data-trim true :data-noescape true}
+    [:code {:data-trim true :data-noescape true
+            :data-line-numbers "1-100|2-6|7-11|12-16"}
      "{
   \"type\": \"object\",
   \"properties\": {

@@ -165,6 +165,31 @@
      [:li "We can express optionality with the required field"]
      [:li "There is also metadata which we can use to give human descriptions and information, like comments would"]]]])
 
+(def validation
+  [:section
+   slide-config
+   [:h1 "Validation"]
+   [:pre
+    [:code {:data-trim true :data-noescape true}
+     "{
+  \"errors\": [
+    {
+      \"instancePath\": \"\",
+      \"schemaPath\": \"#/required\",
+      \"keyword\": \"required\",
+      \"params\": {
+        \"missingProperty\": \"productName\"
+      },
+      \"message\": \"must have required property 'productName'\",
+    }
+  ]
+}"]]
+   [:aside.notes
+    [:ul
+     [:li "The primary use case for JSON schema is validation"]
+     [:li "Does this JSON fit inside my JSON Schema box?"]
+     [:li "Third party validators like AJV produce structured and unambiguous errors"]]]])
+
 (def type-constraints-numbers
   [:section
    slide-config
@@ -293,6 +318,19 @@
      [:li "Annotated to be readable to humans and convey intent"]
      [:li "Plenty of third party tooling available"]]]])
 
+(def ui
+  [:section
+   slide-config
+   [:h1 "Generated UI"]
+   [:img {:src "img/generated-ui.png"}]
+
+   [:aside.notes
+    [:ul
+     [:li "Schema metadata is rich enough to generate a UI"]
+     [:li "Types map on to form inputs"]
+     [:li "UIs are for use by humans, so the annotations like title and description are used to tell the human what each field is"]
+     [:li "We can validate fields as the user types"]]]])
+
 
 (defn all []
   [title-page
@@ -306,12 +344,16 @@
 
    json-schema
    json-schema-example
+   validation
    type-constraints-numbers
    type-constraints-strings
    conditionality
    features-list
 
    use-cases
+   ui
+   ;; custom ui - how we can use extensions, e.g. domainType=currency, array pickers etc
+
    ;; practical-application ;; common definition used across multiple services, UI, ETL pipe
    ;; case-study-structured-products ;; services can treat it as a blob while knowing they can peer in
    ;;

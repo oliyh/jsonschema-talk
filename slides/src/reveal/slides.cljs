@@ -80,7 +80,7 @@
    [:h1 "The good"]
    [:pre
     [:code {:data-trim true :data-noescape true}
-         "{
+     "{
   \"firstName\": \"John\",
   \"lastName\": \"Smith\",
   \"age\": 27,
@@ -275,7 +275,7 @@
     }
   }
 }"
-]]
+     ]]
    [:aside.notes
     [:ul
      [:li "We can even represent conditionality"]
@@ -300,24 +300,6 @@
      [:li "JSON Schema has a huge range of features that I've only just touched on"]
      [:li "There should be nothing preventing representation of your data structures in JSON Schema"]
      [:li "It's also extensible - you can add any keywords you like - but consumers will need to be told what they mean"]]]])
-
-(def use-cases
-  [:section
-   slide-config
-   [:h1 "Use cases"]
-   ;; https://www.spreadshirt.co.uk/create-your-own?productType=812&productTypeCategory=CG01
-   [:div
-    (style {:display "flex"})
-    [:div [:img {:src "img/first-class.png"}]]
-    [:div [:img {:src "img/annotated.png"}]]
-    [:div [:img {:src "img/open-standard.png"}]]]
-   [:aside.notes
-    [:ul
-     [:li "The schema is there for everyone to see and inspect"]
-     [:li "Just data, so that tools can be used for comprehension"]
-     [:li "Can be shared with any application regardless of language"]
-     [:li "Annotated to be readable to humans and convey intent"]
-     [:li "Plenty of third party tooling available"]]]])
 
 (def ui
   [:section
@@ -349,6 +331,125 @@
      [:li "There are plenty of financial domain types where we can give good UX - currencies, assets, schedules"]
      [:li "This helps ensure the critical job of getting the correct data into the system is as easy and non-fallible as possible"]]]])
 
+(def schema-first
+  [:section
+   slide-config
+   [:h1 "Schema first"]
+   ;; https://www.spreadshirt.co.uk/create-your-own?productType=812&productTypeCategory=CG01
+   [:div
+    (style {:display "flex"})
+    [:div [:img {:src "img/first-class.png"}]]
+    [:div [:img {:src "img/annotated.png"}]]
+    [:div [:img {:src "img/open-standard.png"}]]]
+   [:aside.notes
+    [:ul
+     [:li "What happens if we start with a schema and build from there?"]
+     [:li "It's a good exercise in domain modelling"]
+     [:li "The schema is there for everyone to see and inspect"]
+     [:li "Just data, so that tools can be used for comprehension"]
+     [:li "Can be shared with any application regardless of language"]
+     [:li "Annotated to be readable to humans and convey intent"]
+     [:li "Plenty of third party tooling available"]]]])
+
+(def system-architecture
+  [:section
+   slide-config
+   [:h1 "System architecture"]
+   [:img {:src "img/system.svg"
+          :style "background-color: #eee; padding: 1rem;"}]
+   [:aside.notes
+    [:ul
+     [:li "Imagine a system composed of many applications"]
+     [:li "The system creates value within the business domain"]
+     [:li "The business domain needs to be modelled to some greater or lesser degree within the system"]
+     [:li "The applications may have different responsibilities within that domain, but they shouldn't disagree about it"]
+     [:li "If you can allow domain entities to flow through the applications they can perform their special jobs without impeding the purpose of the system"]]]])
+
+(def ant-colony
+  [:section
+   slide-config
+   [:h1 "A school for ants"]
+   [:img {:src "img/ant-colony.gif"}]
+   [:aside.notes
+    [:ul
+     [:li "You can compare it to an ant colony"]
+     [:li "The colony itself works at higher abstractions and models threats and opportunities in the world around it"]
+     [:li "But the individual ants can be simple automatons working at their given job"]
+     [:li "They can pass signals to other types of ants without knowing what that signal means"]
+     [:li "They don't need to understand what the colony is doing, but the colony relies on them to perform their specific role"]]]])
+
+(def case-study-intro
+  [:section
+   slide-config
+   [:h1 "Case study"]
+   [:p "Structured products"]
+   [:div
+    [:img {:src "img/types-of-structured-products.png"
+           :style "background-color: #eee; padding: 1rem;"}]]
+   [:div
+    [:small "https://www.interpersona.nl/types-of-structured-products/"]]
+   [:aside.notes
+    [:ul
+     [:li "Here's some practical experience I can share with you from using JSON Schema to model Structured Products"]
+     [:li "Structured Products come in four main flavours which cater for different risk and reward attitudes"]
+     [:li "They offer better returns than bonds but without as much risk as stocks"]]]])
+
+(def product-composition
+  [:section
+   slide-config
+   [:h1 "Composition"]
+   [:div [:img {:src "img/composition.webp"}]]
+   [:div
+    [:small "https://www.investopedia.com/articles/optioninvestor/07/structured_products.asp"]]
+   [:aside.notes
+    [:ul
+     [:li "They are composed of more primitive financial instruments like bonds and options"]
+     [:li "This one has an option and a bond"]
+     [:li "The bond gives downside protection"]
+     [:li "The option participates in the upside of the underlying asset"]]]])
+
+(def composite-payoff
+  [:section
+   slide-config
+   [:h1 "Composite payoff"]
+   [:div [:img {:src "img/payoff.webp"}]]
+   [:div
+    [:small "https://www.investopedia.com/articles/optioninvestor/07/structured_products.asp"]]
+   [:aside.notes
+    [:ul
+     [:li "The payoff profile of the product can have interesting features as a result of the interplay between the various instruments"]
+     [:li "Here the upside is twice the performance of the underlying asset, but capped at 15%"]
+     [:li "There is no downside protection, the investor is exposed to 100% of any losses"]
+     [:li "Suitable for someone who is mildly bullish and wishes to get better returns than a weakly improving underlying"]]]])
+
+(def megazord
+  [:section
+   slide-config
+   [:h1 "Megazord"]
+   [:img {:src "img/megazord.gif"}]
+   [:aside.notes
+    [:ul
+     [:li "So Structured Products are a bit like Megazord"]
+     [:li "Composed of many parts, each with their own particular behaviours"]
+     [:li "Combining to create something more powerful than the sum of its parts"]
+     [:li "Capable of saving the earth"]]]])
+
+(def taxonomy
+  [:section
+   slide-config
+   [:h1 "Taxonomy"]
+   [:div
+    [:img {:src "img/taxonomy.jpg"}]]
+   [:div
+    [:small "https://www.sciencedirect.com/science/article/abs/pii/S0378426604002511"]]
+   [:aside.notes
+    [:ul
+     [:li "The instruments of which these products are composed have features which they impart to the product"]
+     [:li "The product is the sum of these features, of which some combinations become very popular"]
+     [:li "These familial features give rise to a taxonomy of structured products"]
+     [:li "And can be modelled very well by composing JSON Schemas"]]]])
+
+
 
 (defn all []
   [title-page
@@ -368,9 +469,21 @@
    conditionality
    features-list
 
-   use-cases
    ui
    custom-ui
+
+   schema-first
+   system-architecture
+   ant-colony
+
+   case-study-intro
+   product-composition
+   composite-payoff
+   megazord
+   taxonomy
+
+   ;; SP ui - any screenshots of sphere?
+   ;; enrichment, validation, pricing, doc gen, risk booking - ants
 
    ;; practical-application ;; common definition used across multiple services, UI, ETL pipe
    ;; case-study-structured-products ;; services can treat it as a blob while knowing they can peer in

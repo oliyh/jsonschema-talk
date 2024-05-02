@@ -486,7 +486,9 @@
    ;; enrichment, validation, pricing, doc gen, risk booking - ants
 
    ;; practical-application ;; common definition used across multiple services, UI, ETL pipe
-   ;; case-study-structured-products ;; services can treat it as a blob while knowing they can peer in
+   ;; case-study-structured-products ;; services can treat it as a blob while knowing they can peer in. because these things are complicated
+   ;; so we like to split the domain processes out, and each one may care about different features but maybe nothing compares about the whole (deal + product)
+   ;; so instead of inferring that from the parts we are explicit
    ;;
 
    ])

@@ -331,58 +331,10 @@
      [:li "There are plenty of financial domain types where we can give good UX - currencies, assets, schedules"]
      [:li "This helps ensure the critical job of getting the correct data into the system is as easy and non-fallible as possible"]]]])
 
-(def schema-first
-  [:section
-   slide-config
-   [:h1 "Schema first"]
-   ;; https://www.spreadshirt.co.uk/create-your-own?productType=812&productTypeCategory=CG01
-   [:div
-    (style {:display "flex"})
-    [:div [:img {:src "img/first-class.png"}]]
-    [:div [:img {:src "img/annotated.png"}]]
-    [:div [:img {:src "img/open-standard.png"}]]]
-   [:aside.notes
-    [:ul
-     [:li "What happens if we start with a schema and build from there?"]
-     [:li "It's a good exercise in domain modelling"]
-     [:li "The schema is there for everyone to see and inspect"]
-     [:li "Just data, so that tools can be used for comprehension"]
-     [:li "Can be shared with any application regardless of language"]
-     [:li "Annotated to be readable to humans and convey intent"]
-     [:li "Plenty of third party tooling available"]]]])
-
-(def system-architecture
-  [:section
-   slide-config
-   [:h1 "System architecture"]
-   [:img {:src "img/system.svg"
-          :style "background-color: #eee; padding: 1rem;"}]
-   [:aside.notes
-    [:ul
-     [:li "Imagine a system composed of many applications"]
-     [:li "The system creates value within the business domain"]
-     [:li "The business domain needs to be modelled to some greater or lesser degree within the system"]
-     [:li "The applications may have different responsibilities within that domain, but they shouldn't disagree about it"]
-     [:li "If you can allow domain entities to flow through the applications they can perform their special jobs without impeding the purpose of the system"]]]])
-
-(def ant-colony
-  [:section
-   slide-config
-   [:h1 "A school for ants"]
-   [:img {:src "img/ant-colony.gif"}]
-   [:aside.notes
-    [:ul
-     [:li "You can compare it to an ant colony"]
-     [:li "The colony itself works at higher abstractions and models threats and opportunities in the world around it"]
-     [:li "But the individual ants can be simple automatons working at their given job"]
-     [:li "They can pass signals to other types of ants without knowing what that signal means"]
-     [:li "They don't need to understand what the colony is doing, but the colony relies on them to perform their specific role"]]]])
-
 (def case-study-intro
   [:section
    slide-config
-   [:h1 "Case study"]
-   [:p "Structured products"]
+   [:h1 "Structured Products"]
    [:div
     [:img {:src "img/types-of-structured-products.png"
            :style "background-color: #eee; padding: 1rem;"}]]
@@ -390,7 +342,8 @@
     [:small "https://www.interpersona.nl/types-of-structured-products/"]]
    [:aside.notes
     [:ul
-     [:li "Here's some practical experience I can share with you from using JSON Schema to model Structured Products"]
+     [:li "Now you know the awesome power of JSON Schema, what can we build with it?"]
+     [:li "It turns out you can build an award-winning Structured Products platform with a generated UI!"]
      [:li "Structured Products come in four main flavours which cater for different risk and reward attitudes"]
      [:li "They offer better returns than bonds but without as much risk as stocks"]]]])
 
@@ -434,7 +387,115 @@
      [:li "Combining to create something more powerful than the sum of its parts"]
      [:li "Capable of saving the earth"]]]])
 
-(def taxonomy
+(def structured-product-schema
+  [:section
+   slide-config
+   [:h1 "Product schema"]
+      [:pre
+       [:code {:data-trim true :data-noescape true}
+     "{
+  \"title\": \"Structured Product\",
+  \"description\": \"A yield enhancement note\",
+  \"type\": \"object\",
+  \"properties\": {
+    \"Underlyings\": { ... },
+    \"Coupon\": { ... },
+    \"Cap\": { ... },
+    \"Protection\": { ... },
+    \"Investment\": { ... },
+    \"Redemption\": { ... }
+  }
+}"]]
+   [:aside.notes
+    [:ul
+     [:li "The instruments of which these products are composed have features which they impart to the product"]
+     [:li "The product is the sum of these features, of which some combinations become very popular"]
+     [:li "They are complex, yes"]
+     [:li "But they can be modelled by composing JSON Schemas"]]]])
+
+(def schema-first
+  [:section
+   slide-config
+   [:h1 "Schema first"]
+   ;; https://www.spreadshirt.co.uk/create-your-own?productType=812&productTypeCategory=CG01
+   [:div
+    (style {:display "flex"})
+    [:div [:img {:src "img/first-class.png"}]]
+    [:div [:img {:src "img/annotated.png"}]]
+    [:div [:img {:src "img/open-standard.png"}]]]
+   [:aside.notes
+    [:ul
+     [:li "What happens if we start with a schema and build from there?"]
+     [:li "It's a good exercise in domain modelling"]
+     [:li "The schema is there for everyone to see and inspect"]
+     [:li "Just data, so that tools can be used for comprehension"]
+     [:li "Can be shared with any application regardless of language"]
+     [:li "Annotated to be readable to humans and convey intent"]
+     [:li "Plenty of third party tooling available"]]]])
+
+(def schema-central
+  [:section
+   slide-config
+   [:h1 "Schema central"]
+   [:img {:src "img/sn-platform.svg"
+          :style "background-color: #eee; padding: 1rem;"}]
+   [:aside.notes
+    [:ul
+     [:li "A Structured Products platform is a big complicated system"]
+     [:li "Lots of applications, lots of people - business users, analysts, quants, developers, product owners"]
+     [:li "We can put the schema in the middle of the system to describe the domain of structured products"]
+     [:li "All the applications can treat it as a blob, but they can refer to the schema if they need to inspect it to perform their task"]
+     [:li "Domain entities can flow through the applications without impedance"]
+     [:li "The applications can use different languages and technologies"]
+     [:li "Developers don't need to be SP experts"]
+     [:li "New product features can be released in the schema without upheaval across the whole system"]]]])
+
+(def ant-colony
+  [:section
+   slide-config
+   [:h1 "A school for ants"]
+   [:img {:src "img/ant-colony.gif"}]
+   [:aside.notes
+    [:ul
+     [:li "You can compare it to an ant colony"]
+     [:li "The colony itself works at higher abstractions and models threats and opportunities in the world around it"]
+     [:li "But the individual ants can be simple automatons working at their given job"]
+     [:li "They can pass signals to other types of ants without knowing what that signal means"]
+     [:li "They don't need to understand what the colony is doing, but the colony relies on them to perform their specific role"]]]])
+
+(def ui-schema-enhancement
+  [:section
+   slide-config
+   [:h1 "Progressive enhancement"]
+   [:img {:src "img/ui-schema-pipeline.svg"
+          :style "background-color: #eee; padding: 1rem;"}]
+   [:aside.notes
+    [:ul
+     [:li "My particular experience is building a pricing and booking UI from these schemas"]
+     [:li "We built a pipeline where schemas were progressively enhanced before rendering"]
+     [:li "Apply defaults, hide enums with only one choice and readonly fields, rename with localised terminology"]
+     [:li "Apply ordering"]
+     [:li "We end up with an enhanced schema which describes a form which is concise and relevant to the user"]
+     [:li "We use it to build a state machine where we use the schema to template an initial document"]
+     [:li "We render a form on the screen using the schema to choose the right component and the document supplies the values"]
+     [:li "When a user changes a value, we push it into the document, run validation and templating and produce the new document"]
+     [:li "This gets rendered as before and we end up with a responsive, helpful UI that enables accurate data capture"]
+     [:li "Not an easy job for complex things like structured products!"]]]])
+
+
+(def ui-rendering
+  [:section
+   slide-config
+   [:h1 "Rendering"]
+   [:img {:src "img/ui-rendering.svg"
+          :style "background-color: #eee; padding: 1rem;"}]
+   [:aside.notes
+    [:ul
+     [:li "The renderer doesn't actually have much to do, other than choose the right component for each field"]
+     [:li "Render with a mix of primitive and progressively enhanced components"]
+     [:li "Render in card and grid form"]]]])
+
+#_(def taxonomy
   [:section
    slide-config
    [:h1 "Taxonomy"]
@@ -468,19 +529,21 @@
    type-constraints-strings
    conditionality
    features-list
-
    ui
    custom-ui
-
-   schema-first
-   system-architecture
-   ant-colony
 
    case-study-intro
    product-composition
    composite-payoff
    megazord
-   taxonomy
+   structured-product-schema
+
+   schema-first
+   schema-central
+   ant-colony
+
+   ui-schema-enhancement
+   ui-rendering
 
    ;; SP ui - any screenshots of sphere?
    ;; enrichment, validation, pricing, doc gen, risk booking - ants

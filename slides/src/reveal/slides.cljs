@@ -495,6 +495,16 @@
      [:li "Render with a mix of primitive and progressively enhanced components"]
      [:li "Render in card and grid form"]]]])
 
+(def questions
+  [:section
+   slide-config
+   [:h1.r-fit-text (style {:color "#111"
+                           :text-shadow "0 0 10px #fff, 0 0 20px #fff, 0 0 30px orange "})
+    "Q&A"]
+   [:aside.notes
+    [:ul
+     [:li "Thanks for listening!"]]]])
+
 #_(def taxonomy
   [:section
    slide-config
@@ -544,6 +554,8 @@
 
    ui-schema-enhancement
    ui-rendering
+
+   questions
 
    ;; SP ui - any screenshots of sphere?
    ;; enrichment, validation, pricing, doc gen, risk booking - ants

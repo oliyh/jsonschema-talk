@@ -495,6 +495,21 @@
      [:li "Render with a mix of primitive and progressively enhanced components"]
      [:li "Render in card and grid form"]]]])
 
+(def summary
+  [:section
+   slide-config
+   [:h1 "Summary"]
+   [:ul
+    [:li "Model with JSON Schema"]
+    [:li "Build the system using the model"]]
+   [:aside.notes
+    [:ul
+     [:li "All of which is a very long way of saying"]
+     [:li "Make first-class models of your domain with your business people"]
+     [:li "Applications and developers can use it to build the system"]
+     [:li "It turns out JSON Schema has enough features to describe even complex domains"]
+     [:li "It's language agnostic and is simple data"]]]])
+
 (def questions
   [:section
    slide-config
@@ -555,6 +570,7 @@
    ui-schema-enhancement
    ui-rendering
 
+   summary
    questions
 
    ;; SP ui - any screenshots of sphere?

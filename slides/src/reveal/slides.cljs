@@ -64,6 +64,7 @@
    [:aside.notes
     [:ul
      [:li "The lowest common denominator, the race to the bottom: Javascript"]
+     [:li "JSON stands for Javascript Object Notation"]
      [:li "Javascript is everywhere and once it made the leap to the backend with Node there was no going back"]]]])
 
 (def history
@@ -427,7 +428,7 @@
     [:ul
      [:li "Now you know the awesome power of JSON Schema, what can we build with it?"]
      [:li "It turns out you can build a Structured Products platform with a generated UI!"]
-     [:li "Now for a brief intro to Structured Products from someone who doesn't know very much to a room full of experts"]
+     [:li "Now for a brief intro to Structured Products from me, who doesn't know very much, to a room full of experts"]
      [:li "Structured Products come in four main flavours which cater for different risk and reward attitudes"]
      [:li "They offer better returns than bonds but without as much risk as stocks"]]]])
 

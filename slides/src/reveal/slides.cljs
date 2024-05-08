@@ -20,7 +20,7 @@
 (def me
   [:section
    slide-config
-   [:img {:src "img/i-like-banks.png"}]
+   [:img.r-stretch {:src "img/i-like-banks.png"}]
    [:aside.notes
     [:ul
      [:li "Started career just in time for the global recession in 2008"]
@@ -47,17 +47,28 @@
    [:aside.notes
     [:ul
      [:li "JSON is everywhere, we all love it, it has all these great characteristics"]
-     [:li "But loads of other data formats can claim these too. What's the real secret?"]]]])
+     [:li "But loads of other data formats can claim these too. What's the real secret to its popularity?"]]]])
 
 (def javascript
   [:section
    slide-config
    [:h1 "Javascript"]
    [:p "I'll just use " [:code "array.sort()"] " to sort these numbers"]
-   [:img {:src "img/javascript.png"}]
+   [:img.r-stretch {:src "img/javascript.png"}]
    [:aside.notes
     [:ul
-     [:li "The lowest common denominator, Javascript"]]]])
+     [:li "The lowest common denominator, Javascript"]
+     [:li "Javascript is everywhere and once it made the leap to the backend with Node there was no going back"]]]])
+
+(def history
+  [:section
+   slide-config
+   [:h1 "History"]
+   [:img.r-stretch {:src "img/json-history.jpg"}]
+   [:aside.notes
+    [:ul
+     [:li "JSON was proposed back in 2001 as a workaround so that its creator Douglas Crockford could make a Javascript object with the reserved keyword 'do' inside it"]
+     [:li "He just put the keyword in quotes"]]]])
 
 
 (def missing-features
@@ -71,7 +82,7 @@
    [:aside.notes
     [:ul
      [:li "JSON has six basic data types - null, number, string, boolean, object and array"]
-     [:li "Comments were intentionally left out of JSON by its creator Douglas Crockford to avoid their use as parsing directives"]
+     [:li "Comments were intentionally left out of JSON by its creator to avoid their use as parsing directives"]
      [:li "Attempts to improve on it have had limited uptake - CSON, HOCON, JSONC, JSON5, EDN"]]]])
 
 (def good-json
@@ -128,7 +139,7 @@
   [:section
    slide-config
    [:h1 "JSON Schema"]
-   [:img {:src "img/liquid-cats.png"}]
+   [:img.r-stretch {:src "img/liquid-cats.png"}]
    [:aside.notes
     [:ul
      [:li "JSON Schema lets us specify constraints"]
@@ -427,18 +438,21 @@
     [:ul
      [:li "What happens if we start with a schema and build from there?"]
      [:li "It's a good exercise in domain modelling"]
-     [:li "The schema is there for everyone to see and inspect"]
+     [:li "The schema is there for everyone to see and inspect, you don't have to drag it out of a POJO or some class model"]
      [:li "Just data, so that tools can be used for comprehension"]
      [:li "Can be shared with any application regardless of language"]
      [:li "Annotated to be readable to humans and convey intent"]
-     [:li "Plenty of third party tooling available"]]]])
+     [:li "Plenty of third party tooling available"]
+     [:li "Sometimes we might spend a lot of effort modelling inside an application"]
+     [:li "Those models might be published as a side effect, like a Swagger API"]
+     [:li "And they might still differ from another application in the system that our app talks to"]]]])
 
 (def schema-central
   [:section
    slide-config
    [:h1 "Schema central"]
-   [:img {:src "img/sn-platform.svg"
-          :style "background-color: #eee; padding: 1rem;"}]
+   [:img.r-stretch {:src "img/sn-platform.svg"
+                    :style "background-color: #eee; padding: 1rem;"}]
    [:aside.notes
     [:ul
      [:li "A Structured Products platform is a big complicated system"]
@@ -448,7 +462,9 @@
      [:li "Domain entities can flow through the applications without impedance"]
      [:li "The applications can use different languages and technologies"]
      [:li "Developers don't need to be SP experts"]
-     [:li "New product features can be released in the schema without upheaval across the whole system"]]]])
+     [:li "New product features can be released in the schema without upheaval across the whole system"]
+     [:li "We can write tests using these schemas knowing that they accurately represent data we can expect from other applications"]
+     [:li "We can use the schema as a useful guard at the edges of the system to avoid garbage coming in"]]]])
 
 (def ant-colony
   [:section
@@ -467,8 +483,8 @@
   [:section
    slide-config
    [:h1 "Progressive enhancement"]
-   [:img {:src "img/ui-schema-pipeline.svg"
-          :style "background-color: #eee; padding: 1rem;"}]
+   [:img.r-stretch {:src "img/ui-schema-pipeline.svg"
+                    :style "background-color: #eee; padding: 1rem;"}]
    [:aside.notes
     [:ul
      [:li "My particular experience is building a pricing and booking UI from these schemas"]
@@ -487,8 +503,7 @@
   [:section
    slide-config
    [:h1 "Rendering"]
-   [:img {:src "img/ui-rendering.svg"
-          :style "background-color: #eee; padding: 1rem;"}]
+   [:img {:src "img/ui-rendering.svg"}]
    [:aside.notes
     [:ul
      [:li "The renderer doesn't actually have much to do, other than choose the right component for each field"]
@@ -499,9 +514,7 @@
   [:section
    slide-config
    [:h1 "Summary"]
-   [:ul
-    [:li "Model with JSON Schema"]
-    [:li "Build the system using the model"]]
+   [:img.r-stretch {:src "img/summary.jpg"}]
    [:aside.notes
     [:ul
      [:li "All of which is a very long way of saying"]
@@ -543,6 +556,7 @@
    intro
    json-everywhere
    javascript
+   history
    missing-features
    good-json
    bad-json
